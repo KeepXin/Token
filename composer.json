@@ -1,0 +1,17 @@
+{
+    "name": "keepxin/token",
+    "description": "A Token SDK",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "keepxin",
+            "email": "1300965809@qq.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "KeepXin\\Token\\": "./src"
+        }
+    }
+}
