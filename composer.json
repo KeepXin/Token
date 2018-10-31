@@ -1,0 +1,18 @@
+{
+    "name": "clz\/token",
+    "description": "A Token SDK",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "clz",
+            "email": "1300965809@qq.com"
+        }
+    ],
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Clz\\Token\\": "src"
+        }
+    }
+}
