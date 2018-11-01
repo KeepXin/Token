@@ -175,7 +175,7 @@ class Token
         if (self::$drive == 'db') {
             $token = \DB::table(self::$table)->where(['access_token' => $access_token])->delete();
             if (!$token) {
-                throw new ErrorDbException('token数据库操作失败');
+                throw new ErrorDbException('数据库操作失败');
             }
 
             return ['code' => 0];
