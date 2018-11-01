@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: yanan.shao
+ * User: keep-xin
  * Date: 2018/10/30
  * Time: 11:35
  */
@@ -89,7 +89,7 @@ class Token
 
                 $update = \DB::table(self::$table)->where(['id' => $token->id])->update($param);
                 if (!$update) {
-                    throw new ErrorDbException('token数据库操作失败');
+                    throw new ErrorDbException('数据库操作失败');
                 }
 
             } else {
@@ -102,7 +102,7 @@ class Token
                 $param = array_merge($token_param, $param);
                 $insert = \DB::table(self::$table)->insert($param);
                 if (!$insert) {
-                    throw new ErrorDbException('token数据库操作失败');
+                    throw new ErrorDbException('数据库操作失败');
                 }
 
             }
@@ -125,11 +125,11 @@ class Token
             $token = \DB::table(self::$table)->where(['refresh_token' => $refresh_token])->first();
 
             if (!$token) {
-                return ['code' => 400105, 'message' => 'token不存在'];
+                return ['code' => 400105, 'message' => 'refresh-token不存在'];
             }
 
             if ($token->refresh_token_expires < time()) {
-                return ['code' => 400104, 'message' => 'token已经过期'];
+                return ['code' => 400104, 'message' => 'refresh-token已经过期'];
             }
 
             $access_token = self::generateToken();
@@ -153,7 +153,7 @@ class Token
 
             $update = \DB::table(self::$table)->where(['id' => $token->id])->update($param);
             if (!$update) {
-                throw new ErrorDbException('token数据库操作失败');
+                throw new ErrorDbException('数据库操作失败');
             }
 
             return ['code' => 0, 'token' => $token_param];
